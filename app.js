@@ -2,10 +2,13 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import mongoose from "mongoose";
-import { DB_HOST } from "./config.js";
+
+// import { DB_HOST } from "./config.js";
 
 import moviesRouter from "./routes/moviesRouter.js";
 import contactsRouter from "./routes/contactsRouter.js";
+
+// console.log(process.env);
 
 const app = express();
 
@@ -30,7 +33,7 @@ app.listen(3000, () => {
 });
 
 mongoose
-  .connect(DB_HOST)
+  .connect(process.env.DB_HOST)
   .then(() => {
     app.listen(3000, () => {
       console.log("Server is running. Use our API on port: 3000");
