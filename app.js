@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import mongoose from "mongoose";
+import { DB_HOST } from "./config.js";
 
 import moviesRouter from "./routes/moviesRouter.js";
 import contactsRouter from "./routes/contactsRouter.js";
@@ -27,9 +28,6 @@ app.use((err, req, res, next) => {
 app.listen(3000, () => {
   console.log("Server is running. Use our API on port: 3000");
 });
-
-const DB_HOST =
-  "mongodb+srv://Osmolovskyi:Aeb_137894@cluster0.on0w9zy.mongodb.net/my-movies?retryWrites=true&w=majority&appName=Cluster0";
 
 mongoose
   .connect(DB_HOST)
